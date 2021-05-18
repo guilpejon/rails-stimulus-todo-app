@@ -1,7 +1,9 @@
-<h1> Tasks: </h1>
+<h1>Tasks: </h1>
 
 <ul>
   <% @tasks.each do |task| %>
     <%= render 'task', task: task %>
   <% end %>
 </ul>
+
+<%= render 'form', task: @task %>
