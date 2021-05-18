@@ -9,11 +9,15 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.save
+
+    ActionCable.server.broadcast('tasks_channel', {})
   end
 
   def complete
     @task = Task.find(params[:id])
     @task.update(completed: true)
+
+    ActionCable.server.broadcast('tasks_channel', {})
   end
 
   private
