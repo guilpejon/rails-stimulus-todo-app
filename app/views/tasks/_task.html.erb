@@ -1,0 +1,7 @@
+<li>
+  <% if task.completed? %>
+    <s><%= task.title %></s>
+  <% else %>
+    <%= task.title %>
+  <% end %>
+</li>
